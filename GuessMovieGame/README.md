@@ -8,6 +8,6 @@ BUT the more correct letters you guess the more obvious the movie becomes and at
 
 The program will randomly pick a movie title from a text file that contains a large list of movies.
 Once the computer picks a random title, it will display underscores "_" in place of the real letters, thereby only giving away the number of letters in the movie title.
-![screen shot](https://classroom.udacity.com/courses/ud283/lessons/fbea4b4b-485d-4eb6-b010-c01241944726/concepts/3b5d67c0-4010-44ae-a164-448854171e06#)
+![screen shot](https://github.com/ezechidc/UdacityJavaOOP/blob/master/GuessMovieGame/images/screen-shot-2017-07-11-at-11.26.18-pm.png)
 
 Then it will wait for the player to enter their first letter guess.
