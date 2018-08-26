@@ -55,6 +55,7 @@ public class PlayGame {
             char input = getInput();
             if(input == selectedMovie.charAt(i)){
                 game.setCharAt(i, input);
+                System.out.println("Current guess: " + game);
                 i++;
 
             } else {
