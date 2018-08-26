@@ -7,7 +7,7 @@ public class Movies {
     private  ArrayList<String> movies;
 
     Movies() {
-        movies = new ArrayList<String>();
+        movies = new ArrayList<>();
         File file = new File("/home/dennis/Desktop/com.expample.java8/GuessMOVIE/src/movies.txt");
         try {
             Scanner scanner = new Scanner(file);

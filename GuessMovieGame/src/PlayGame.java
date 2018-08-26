@@ -1,13 +1,14 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PlayGame {
+class PlayGame {
 
     private Movies movies;
     private String selectedMovie;
     private String play;
 
-    public PlayGame() {
+    PlayGame() {
         movies = new Movies();
         selectedMovie = chooseMovie();
         movies.getAllMovies();
@@ -21,10 +22,10 @@ public class PlayGame {
     }
 
     private static char getInput() {
-        Scanner scanner = null;
+
         char ch = 0;
         try {
-            scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
             ch = scanner.nextLine().charAt(0);
 
         } catch (Exception e) {
@@ -51,19 +52,29 @@ public class PlayGame {
         System.out.println("You are guessing: " + game);
         int len = selectedMovie.length();
         int i = 0;
+        ArrayList<Character> wrongLetters = new ArrayList<>();
+
         while (len > 0){
+            System.out.print("Guess a letter: ");
             char input = getInput();
             if(input == selectedMovie.charAt(i)){
                 game.setCharAt(i, input);
                 System.out.println("Current guess: " + game);
-                i++;
 
             } else {
-                System.out.println("No match try again");
+                wrongLetters.add(input);
+                System.out.print("You have guessed (" + wrongLetters.size() + ")" + "wrong letters: ");
+                wrongLetters.forEach(System.out::print);
+                System.out.println("\n");
                 System.out.println("You are guessing: " + game);
             }
+            i++;
             len--;
-            System.out.println("You have " + len + " guesses remaining");
+            if(wrongLetters.size()!=10) {
+                System.out.println("You have " + len + " guesses remaining");
+            }else {
+                break;
+            }
         }
         return game.toString();
     }
@@ -71,6 +82,7 @@ public class PlayGame {
     private void isWon(){
         if(selectedMovie.equalsIgnoreCase(play)){
             System.out.println("You win!");
+            System.out.println("You have guessed '" + selectedMovie + "' correctly.");
         } else{
             System.out.println("You lose!!");
         }
